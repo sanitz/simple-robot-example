@@ -1,0 +1,15 @@
+*** Settings ***
+Documentation    Das ist ein einfacher Test mit robot
+...              über http://www.google.de
+...              und der Beschreibung auf *zwei* Zeilen!
+
+Resource         search.txt
+Library          Selenium2Library
+Test Setup       Open Google
+Test Template    Search and Test First Result
+
+*** Test Cases ***   Search     First Result
+
+Momox                momox      Momox
+it-agile             it-agile   it-agile: Die Experten für agile Softwareentwicklung
+Django               django     Django: The Web framework for perfectionists with deadlines

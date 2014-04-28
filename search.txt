@@ -1,0 +1,27 @@
+*** Settings ***
+Documentation    Keywords für die Suche mit Google
+
+Library          Selenium2Library
+
+*** Keywords ***
+
+Search and Test First Result
+  [Arguments]             ${search}  ${first_result}
+  Search for              ${search}
+  First Result Should Be  ${first_result}
+
+Open Google
+  Log               Opening Google
+  Go To             http://www.google.de/
+  Title Should Be   Google
+
+Search for
+  [Arguments]  ${search}
+  Input Text   id=gbqfq  ${search}
+  Press Key       id=gbqfq  \\13
+
+First Result Should Be
+  [Arguments]  ${expected}
+  Wait Until Element Is Visible  css=h3.r>a
+  Capture Page Screenshot
+  Element Should Contain         css=h3.r>a  ${expected}
