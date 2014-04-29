@@ -5,8 +5,19 @@ Documentation    Das ist ein einfacher Test mit robot
 
 Resource         search.txt
 Library          Selenium2Library
+Suite Setup      Start Browser
 Test Setup       Open Google
 Test Template    Search and Test First Result
+Suite Teardown   Stop Browser
+
+*** Keywords ***
+
+Start Browser
+    Open Browser  http://www.google.de/  browser=ff
+
+Stop Browser
+    Log           Stopping the Browser
+    Close All Browsers
 
 *** Test Cases ***   Search     First Result
 
